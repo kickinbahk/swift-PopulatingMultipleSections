@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource {
+  
+  let fruit = [["Orange", "Apple", "Pear", "Bannana"], ["Watermelon", "Peach", "Plum"]]
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -16,11 +18,18 @@ class ViewController: UIViewController, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 10
+    return fruit[section].count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    return UITableViewCell()
+    let cell = UITableViewCell()
+    
+    cell.textLabel?.text = fruit[indexPath.section][indexPath.row]
+    return cell
+  }
+  
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return fruit.count
   }
 
   
