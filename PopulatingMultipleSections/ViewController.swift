@@ -10,7 +10,11 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource {
   
-  let fruit = [["Orange", "Apple", "Pear", "Bannana"], ["Watermelon", "Peach", "Plum"]]
+  let fruit = [["Orange", "Apple", "Cantalope"],
+               ["Watermelon", "Peach", "Plum", "Bannana"],
+               ["Tomato", "Durian"]]
+  
+  let headers = ["Basic Fruits", "My Favorite Fruits", "Fruits I dislike"]
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -30,6 +34,10 @@ class ViewController: UIViewController, UITableViewDataSource {
   
   func numberOfSections(in tableView: UITableView) -> Int {
     return fruit.count
+  }
+  
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return headers[section]
   }
 
   
