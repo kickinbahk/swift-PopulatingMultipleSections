@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Multiple Sections View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PopulatingMultipleSections" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MultipleSectionsViewController" customModule="PopulatingMultipleSections" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -21,15 +21,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gzK-i5-dQg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="74" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gzK-i5-dQg">
+                                <rect key="frame" x="0.0" y="58" width="375" height="609"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="609" id="VgG-xw-imA"/>
+                                </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="Tgd-cQ-dgt">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="74" id="Tgd-cQ-dgt">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tgd-cQ-dgt" id="Zar-a0-x5c">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" tableViewCell="Tgd-cQ-dgt" id="Zar-a0-x5c">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -38,19 +41,30 @@
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="CLv-qM-z42"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byG-1D-qKF">
+                                <rect key="frame" x="172" y="20" width="30" height="30"/>
+                                <state key="normal" title="Sort"/>
+                                <connections>
+                                    <action selector="sortArray:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bip-m3-9En"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="gzK-i5-dQg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8rT-5u-s95"/>
-                            <constraint firstAttribute="trailing" secondItem="gzK-i5-dQg" secondAttribute="trailing" id="8ro-sO-kgd"/>
-                            <constraint firstItem="gzK-i5-dQg" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="h80-c8-bzo"/>
-                            <constraint firstItem="gzK-i5-dQg" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="uyZ-h8-enJ"/>
+                            <constraint firstItem="gzK-i5-dQg" firstAttribute="centerX" secondItem="byG-1D-qKF" secondAttribute="centerX" id="69U-Tr-8Ri"/>
+                            <constraint firstItem="gzK-i5-dQg" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="D8t-bu-YJH"/>
+                            <constraint firstItem="gzK-i5-dQg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="WeX-Uc-plZ"/>
+                            <constraint firstAttribute="trailing" secondItem="gzK-i5-dQg" secondAttribute="trailing" id="Xau-Wz-Sfv"/>
+                            <constraint firstItem="gzK-i5-dQg" firstAttribute="top" secondItem="byG-1D-qKF" secondAttribute="bottom" constant="8" symbolic="YES" id="t5f-iR-dZg"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="myTableView" destination="gzK-i5-dQg" id="qqp-dh-mMf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
+            <point key="canvasLocation" x="116" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>

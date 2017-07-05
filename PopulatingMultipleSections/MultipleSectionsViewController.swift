@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MultipleSectionsViewController.swift
 //  PopulatingMultipleSections
 //
 //  Created by Josiah Mory on 7/5/17.
@@ -8,9 +8,25 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class MultipleSectionsViewController: UIViewController, UITableViewDataSource {
   
-  let fruit = [["Orange", "Apple", "Cantalope"],
+  
+
+  @IBOutlet weak var myTableView: UITableView!
+  @IBAction func sortArray(_ sender: UIButton) {
+    
+    print(fruit[0])
+    fruit[0].sort()
+    print(fruit[0])
+    // Reload single individual cell
+    // let indexPath = IndexPath(row: 0, section: 0)
+    // myTableView.reloadRows(at: [indexPath], with: .fade)
+    
+    // Reload specific section
+    myTableView.reloadSections([0], with: .fade)
+  }
+  
+  var fruit = [["Orange", "Apple", "Cantalope"],
                ["Watermelon", "Peach", "Plum", "Bannana"],
                ["Tomato", "Durian"]]
   
